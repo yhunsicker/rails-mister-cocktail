@@ -1,12 +1,25 @@
+
 <h2>All Drinks Available</h2>
 
-<% @cocktails.each do |cocktail| %>
-<p><%= cocktail.name %> | <%= link_to 'Show', cocktail %> |
-  <%= link_to "Destroy", cocktail_path(cocktail), method: :delete, data: { confirm: "Are you sure?" } %>  <div id="add_list"></p>
-<% end %>
+<div class="container">
 
-<p><%= link_to "Add to List", new_cocktail_path %></p>
+  <% @cocktails.each do |cocktail| %>
+<div class="cards" >
+  <p><%= cocktail.name %> | <%= link_to 'Show', cocktail %> | <%= link_to 'Destroy', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %> </p>
+
+
+<p><%= link_to "Add to List", cocktails_path %></p>
+  <div class="card-category" >
+
+  </div>
 </div>
+
+
+
+
+    <% end %>
+
+  </div>
 
 
 
