@@ -1,6 +1,12 @@
 
 
 <h4>Add a review</h4>
+  <i class="far fa-star"> </i>
+  <i class="far fa-star"> </i>
+  <i class="far fa-star"> </i>
+  <i class="far fa-star"> </i>
+  <i class="far fa-star"> </i>
+
 <%= simple_form_for [cocktail, review] do |f| %>
   <%= f.input :rating, collection: 0..5 %>
   <%= f.input :content %>

@@ -2,26 +2,20 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 Cocktail.destroy_all
 # Examples:
-Cocktail.create(name: "Mojito")
-Cocktail.create(name: "Calimucho")
-Cocktail.create(name: "Rebujito")
-Cocktail.create(name: "Caipirinha")
-
-# Ingredient.create(name: "Rum")
-# Ingredient.create(name: "Sugar")
-# Ingredient.create(name: "Mint Leaves")
-# Ingredient.create(name: "Club Soda")
-# Ingredient.create(name: "Lime")
-# Ingredient.create(name: "Bourbon Whiskey")
-# Ingredient.create(name: "Apricot Brandy")
-# Ingredient.create(name: "Lemon Juice")
-# Ingredient.create(name: "Oranges")
-# Ingredient.create(name: "Lemon Juice")
-# Ingredient.create(name: "Tobasco")
-# Ingredient.create(name: "Cacique Guaro")
-# Ingredient.create(name: "Tomato Juice")
-# Ingredient.create(name: "Vodka")
-# Ingredient.create(name: "Sour Apple Liqueur")
-# Ingredient.create(name: "Ice Cubes")
 
 
+require 'open-uri'
+
+# puts "Destroy ingredients"
+# Ingredient.destroy_all if Rails.env.development?
+
+# puts "Destroy Cocktails"
+# Cocktail.destroy_all if Rails.env.development?
+
+puts "Create ingredients"
+url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+ingredients = JSON.parse(open(url).read)
+ingredients["drinks"].each do |ingredient|
+  i = Ingredient.create(name: ingredient["strIngredient1"])
+  puts "create #{i.name}"
+end

@@ -24,24 +24,24 @@ class CocktailsController < ApplicationController
     end
   end
 
-  def edit
-    id = params[:id]
-    @cocktail = Cocktail.find(id)
-  end
+  # def edit
+  #   id = params[:id]
+  #   @cocktail = Cocktail.find(id)
+  # end
 
-  def update
-    id = params[:id]
-    @cocktail = Cocktail.find(id)
-    @cocktail.update(cocktail_params)
-    redirect_to cocktails_path(@cocktail)
-  end
+  # def update
+  #   id = params[:id]
+  #   @cocktail = Cocktail.find(id)
+  #   @cocktail.update(cocktail_params)
+  #   redirect_to cocktails_path(@cocktail)
+  # end
 
-  def destroy
-    id = params[:id]
-    @cocktail = Cocktail.find(id)
-    @cocktail.destroy
-    redirect_to cocktails_path
-  end
+  # def destroy
+  #   id = params[:id]
+  #   @cocktail = Cocktail.find(id)
+  #   @cocktail.destroy
+  #   redirect_to cocktails_path
+  # end
 
 private
   def set_cocktail
